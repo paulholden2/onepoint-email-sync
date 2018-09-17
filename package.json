@@ -1,0 +1,33 @@
+{
+  "name": "onepoint-email-sync",
+  "version": "0.1.0",
+  "description": "Sync employee emails from OnePoint to a Google Directory group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/paulholden2/onepoint-email-sync.git"
+  },
+  "keywords": [
+    "onepoint",
+    "google",
+    "directory",
+    "email",
+    "sync",
+    "group"
+  ],
+  "author": "Paul Holden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulholden2/onepoint-email-sync/issues"
+  },
+  "homepage": "https://github.com/paulholden2/onepoint-email-sync#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "dotenv": "^6.0.0",
+    "googleapis": "^27.0.0",
+    "onepoint-node-sdk": "^1.0.2"
+  }
+}
