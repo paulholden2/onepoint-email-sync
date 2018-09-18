@@ -225,9 +225,6 @@ function onePointSync(auth) {
      * in the active employees report
      */
     (callback) => {
-      // Skip for now
-      return callback();
-
       var employeeEmails = employeeList.map(e => e['"Email"'].toLowerCase());
 
       async.each(emailMembers, (member, callback) => {
