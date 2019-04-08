@@ -202,7 +202,7 @@ function onePointSync(auth) {
 
           nextPageToken = res.data.nextPageToken || false;
           members = members.concat(res.data.members.filter((m) => {
-            return m.status === 'ACTIVE' && m.type === 'USER'
+            return m.role === 'MEMBER' && m.type === 'USER'
           }));
 
           callback();
@@ -228,7 +228,14 @@ function onePointSync(auth) {
       var employeeEmails = employeeList.map(e => e['"Email"'].toLowerCase());
 
       async.each(emailMembers, (member, callback) => {
-        if (employeeEmails.indexOf(member.email.toLowerCase()) < 0) {
+        var email = member.email.toLowerCase();
+
+        if (email.endsWith('@stria.com')) {
+          console.log(`Skip removing ${email} (Stria email address)`);
+          return callback();
+        }
+
+        if (employeeEmails.indexOf(email) < 0) {
           console.log('Removing terminated employee: ' + member.email);
           service.members.delete({
             groupKey: EVERYONE_EMAIL,
@@ -259,7 +266,7 @@ function onePointSync(auth) {
             }
           }, paced(() => callback()));
         } else {
-          paced(callback)();
+          callback();
         }
       }, callback);
     }
