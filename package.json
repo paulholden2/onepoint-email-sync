@@ -27,7 +27,7 @@
   "dependencies": {
     "async": "^2.6.1",
     "dotenv": "^6.0.0",
-    "googleapis": "^27.0.0",
+    "googleapis": ">= 39.1.0",
     "onepoint-node-sdk": "^1.0.2"
   }
 }
